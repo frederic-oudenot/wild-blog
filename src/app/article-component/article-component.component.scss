@@ -1,0 +1,16 @@
+article {
+  width: 20rem;
+  height: 10rem;
+  border: 1px black solid;
+  opacity: 50%;
+  border-radius: 2rem;
+  margin:0 auto;
+  padding:2rem;
+
+  text-align: center;
+  text-wrap:wrap;
+
+  p{
+    text-align:justify;
+  }
+}
