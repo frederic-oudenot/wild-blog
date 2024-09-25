@@ -1,6 +1,9 @@
-article {
-  width: 20rem;
-  height: 10rem;
+.article {
+  display:flex;
+  flex-direction:column;
+
+  width: 25rem;
+  height: fit-content;
   border: 1px black solid;
   opacity: 50%;
   border-radius: 2rem;
@@ -10,7 +13,49 @@ article {
   text-align: center;
   text-wrap:wrap;
 
-  p{
+  .article-content {
     text-align:justify;
+  }
+
+
+}
+
+.article-option {
+  display:flex;
+  flex-direction:column;
+  gap:2rem;
+
+  width: 25rem;
+  height: fit-content;
+
+  opacity: 50%;
+  border-radius: 2rem;
+  margin:0 auto;
+  padding:2rem;
+
+  text-align: center;
+  text-wrap:wrap;
+
+  .article-comment {
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+  }
+
+  button{
+    cursor: pointer;
+    border-radius: 1rem;
+    background-color: aqua;
+    border: .2px solid black;
+  }
+
+  .button-submit{
+    background-color: forestgreen;
+  }
+
+  input{
+    height:2rem;
+    border-radius: .5rem;
+
   }
 }

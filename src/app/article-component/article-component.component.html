@@ -1,4 +1,29 @@
-<article>
-  <h1>Lorem ipsum dolor sit amet.</h1>
-  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio ducimus amet voluptas veniam praesentium quia reiciendis et ipsa! Reiciendis expedita nostrum esse illum sunt ab.</p>
-</article>
+<div [hidden]="!article.isPublished">
+  <article class="article">
+    <h1 class="article-title">{{ article.title }}</h1>
+    <img [src]="article.image" />
+    <p class="article-content">{{ article.content }}</p>
+    <section class="article-author">
+      <p class="article-author">{{ article.author }}</p>
+    </section>
+    <section [hidden]="!article.comment">
+      <h2>Quelqu'un a écrit : </h2>
+      <p>{{article.comment}}</p>
+    </section>
+  </article>
+</div>
+
+<section class="article-option">
+  <button (click)="togglePublication()">
+    {{ article.isPublished ? "Masquer" : "Afficher" }} l'article
+  </button>
+
+  <div [hidden]="!article.isPublished">
+    <section class="article-comment" sub>
+      <input type="text" [(ngModel)]="article.comment" />
+      <button type="submit" class="button-submit" (click)="createComment($event)">
+       Commenter
+      </button>
+    </section>
+  </div>
+</section>
