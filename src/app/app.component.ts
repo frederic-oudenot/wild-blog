@@ -10,26 +10,27 @@ type Article = {
   isPublished: boolean;
   comment: '';
   likes: number;
-}
+};
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, ArticleComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
 export class AppComponent {
   title = 'Bienvenue sur le Wild Blog de Frédéric !';
 
-  articles : Article[] = [
+  // Data articles
+  articles: Article[] = [
     {
       title: 'Angular 16: Les nouveautés',
       author: 'Alice',
-      content: 'Les nouveautés d\'Angular 16 incluent...',
+      content: "Les nouveautés d'Angular 16 incluent...",
       image: 'https://via.placeholder.com/350x150',
       isPublished: true,
       comment: '',
-      likes: 90
+      likes: 90,
     },
     {
       title: 'Développer une API REST',
@@ -38,7 +39,7 @@ export class AppComponent {
       image: 'https://via.placeholder.com/350x150',
       isPublished: false,
       comment: '',
-      likes: 75
+      likes: 75,
     },
     {
       title: 'Pourquoi TypeScript est essentiel ?',
@@ -47,11 +48,12 @@ export class AppComponent {
       image: 'https://via.placeholder.com/350x150',
       isPublished: true,
       comment: '',
-      likes: 200
-    }
+      likes: 200,
+    },
   ];
 
-  isPublishedArticle() : boolean {
-    return this.articles.some(article => article.isPublished === true);
+  // Checking if a article is published
+  isPublishedArticle(): boolean {
+    return this.articles.some((article) => article.isPublished === true);
   }
 }

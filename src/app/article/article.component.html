@@ -1,6 +1,9 @@
+<!-- Check if article is published -->
 @if(article.isPublished){
+  <!-- Display only published article -->
   <div [hidden]="!article.isPublished">
     <article class="article">
+      <!-- Check if likes is over 100, adding a second class popular -->
       <h1 class="article-title" [ngClass]="{'popular-article' : article.likes > 100}">{{ article.title }}</h1>
       <img [src]="article.image" />
       <p class="article-content">{{ article.content }}</p>
@@ -16,10 +19,12 @@
   </div>
 
   <section class="article-option">
+    <!-- Button to change status : published article -->
     <button (click)="togglePublication()">
       {{ article.isPublished ? "Masquer" : "Afficher" }} l'article
     </button>
 
+  <!-- Display only published article -->
     <div [hidden]="!article.isPublished">
       <section class="article-comment" sub>
         <input type="text" [(ngModel)]="article.comment" />

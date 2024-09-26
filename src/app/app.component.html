@@ -7,21 +7,25 @@
 <!-- * * * * * * * to get started with your project! * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-
 <main class="main">
-      <h1>Hello, {{ title }}</h1>
-      <p>Congratulations! Your app is running. 🎉</p>
-      @if(isPublishedArticle()){
-        @for (article of articles; track $index) {
-          <app-article [article]="article"></app-article>
-        } @empty {
-          <p>Aucunes cartes trouvées !</p>
-        }
-      }@else{
-        <p>Aucunes cartes trouvées !</p>
-      }
+  <!-- Integrate title -->
+  <h1>Hello, {{ title }}</h1>
+  <p>Congratulations! Your app is running. 🎉</p>
 
-
+  <!-- Check if one article is published -->
+  @if(isPublishedArticle()){
+    <!-- Mapping all articles -->
+    @for (article of articles; track $index) {
+      <!-- Sending props to article component -->
+      <app-article [article]="article"></app-article>
+    } @empty {
+    <!-- Not found any data, card not published -->
+    <p>Aucunes cartes trouvées !</p>
+    }
+  }@else{
+    <!-- Not found any data, card not published -->
+    <p>Aucunes cartes trouvées !</p>
+  }
 </main>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
@@ -31,6 +35,5 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
 
 <router-outlet />
