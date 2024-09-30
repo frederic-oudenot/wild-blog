@@ -34,7 +34,7 @@ export class ArticlePageComponent implements OnInit {
   }
 
   //Routes went wrong : error page
-  gotoErrorPage() {
+  gotoErrorPage() :void {
     this.router.navigate(['error']);
   }
 

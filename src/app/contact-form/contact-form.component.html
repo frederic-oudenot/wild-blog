@@ -1,0 +1,88 @@
+<form #contactForm="ngForm" (ngSubmit)="contactForm.valid && onSubmit()">
+  <div [hidden]="!contactForm.submitted">
+  @if(contactForm.valid){
+    <span class="success">Formulaire envoyé</span>
+  }
+  @if(contactForm.invalid){
+      <span class="alert">Erreur lors de l'envoi !</span>
+    }
+  </div>
+  <!-- Champ nom -->
+  <fieldset>
+    <label for="lastname">Nom</label>
+    <input
+      id="lastname"
+      name="lastname"
+      type="text"
+      [(ngModel)]="message.lastname"
+      placeholder="Ecrire votre nom"
+      #lastname="ngModel"
+      required
+      minlength="2"
+      maxlength="15"
+    />
+    @if(lastname.errors){
+    <div [hidden]="lastname.valid || lastname.pristine" class="error">
+      @if(lastname.errors['required']){
+      <span class="alert">Nom recquis</span>
+      } @if(lastname.errors['minlength']){
+      <span class="alert">La longueur minimale doit être supérieur à 2 caractères</span>
+      } @if(lastname.errors['maxlength']){
+      <span class="alert">La longueur maximale doit être inférieur à 15 caractères</span>
+      }
+    </div>
+    }
+  </fieldset>
+  <!-- Champ prénom -->
+  <fieldset>
+    <label for="firstname">Prénom</label>
+    <input
+      id="firstname"
+      name="firstname"
+      type="text"
+      [(ngModel)]="message.firstname"
+      placeholder="Ecrire votre prénom"
+      #firstname="ngModel"
+      required
+      minlength="2"
+      maxlength="15"
+    />
+    @if(firstname.errors){
+    <div [hidden]="firstname.valid || firstname.pristine" class="error">
+      @if(firstname.errors['required']){
+      <span class="alert">Prénom recquis</span>
+      } @if(firstname.errors['minlength']){
+      <span class="alert">La longueur minimale doit être supérieur à 2 caractères</span>
+      } @if(firstname.errors['maxlength']){
+      <span class="alert">La longueur maximale doit être inférieur à 15 caractères</span>
+      }
+    </div>
+    }
+  </fieldset>
+  <!-- Champ email -->
+  <fieldset>
+    <label for="email">Email</label>
+    <input
+      id="email"
+      name="email"
+      type="email"
+      [(ngModel)]="message.email"
+      placeholder="Ecrire votre email"
+      #email="ngModel"
+      required
+      email
+    />
+    @if(email.errors){
+    <div [hidden]="email.valid || email.pristine" class="error">
+      @if(email.errors['required']){
+      <span class="alert">Email recquis</span>
+      } @if(email.errors['email']){
+      <span class="alert">Le format email n'est pas respecté</span>
+      }
+    </div>
+    }
+  </fieldset>
+
+  <button type="reset" class="reset">Reset</button>
+  <button type="submit" class="submit">Submit</button>
+</form>
