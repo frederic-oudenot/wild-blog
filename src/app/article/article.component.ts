@@ -1,35 +1,26 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
-type Article = {
-  title: string;
-  author: string;
-  content: string;
-  image: string;
-  isPublished: boolean;
-  comment: '';
-  likes: number;
-};
+import { RouterLink } from '@angular/router';
+import { ArticleType } from '../models/article.type';
 
 @Component({
   selector: 'app-article',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, RouterLink],
   templateUrl: './article.component.html',
   styleUrl: './article.component.scss',
 })
-export class ArticleComponent {
+export class ArticleComponent implements OnInit {
   // receive object from parent component app component
-  @Input() article: Article = {
-    title: '',
-    author: '',
-    content: '',
-    image: '',
-    isPublished: false,
-    comment: '',
-    likes: 0,
-  };
+  @Input() isOneArticle!: boolean;
+  @Input() article!: ArticleType;
+  isPublished: boolean = true;
+
+  //Init when component is mounted
+  ngOnInit() {
+    this.isPublished = this.article.isPublished === true ? true : false;
+  }
 
   // Switch status publish for one article
   togglePublication(): void {

@@ -1,7 +1,7 @@
 <!-- Check if article is published -->
-@if(article.isPublished){
+@if(article && isPublished){
   <!-- Display only published article -->
-  <div [hidden]="!article.isPublished">
+  <div [hidden]="!isPublished">
     <article class="article">
       <!-- Check if likes is over 100, adding a second class popular -->
       <h1 class="article-title" [ngClass]="{'popular-article' : article.likes > 100}">{{ article.title }}</h1>
@@ -10,6 +10,9 @@
       <section class="article-author">
         <p class="article-author">{{ article.author }}</p>
         <p>Likes : {{article.likes}}</p>
+        @if(!isOneArticle){
+        <a [routerLink]="['/article', article.id]">Voir l'article</a>
+        }
       </section>
       <section [hidden]="!article.comment">
         <h2>Quelqu'un a écrit : </h2>
@@ -19,19 +22,22 @@
   </div>
 
   <section class="article-option">
-    <!-- Button to change status : published article -->
-    <button (click)="togglePublication()">
-      {{ article.isPublished ? "Masquer" : "Afficher" }} l'article
-    </button>
 
-  <!-- Display only published article -->
+    <!-- Display only published article -->
     <div [hidden]="!article.isPublished">
       <section class="article-comment" sub>
-        <input type="text" [(ngModel)]="article.comment" />
+        <input type="text" [(ngModel)]="article.comment" placeholder="Ecrire votre commentaire"/>
         <button type="submit" class="button-submit" (click)="createComment($event)">
-         Commenter
+          Commenter
         </button>
+        <!-- Button to change status : published article -->
+         @if(!isOneArticle){
+           <button (click)="togglePublication()">
+             {{ article.isPublished ? "Masquer" : "Afficher" }} l'article
+           </button>
+         }
       </section>
     </div>
+    <a [routerLink]="['/']">Revenir à la homepage</a>
   </section>
 }
