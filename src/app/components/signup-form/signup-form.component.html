@@ -68,8 +68,8 @@
       }
     </div>
   </div>
-  <button type="button" (click)="checkPassword()">voir mot de passe</button>
+  <button type="button" (click)="seePassword()">voir mot de passe</button>
 
-  <button class="reset" type="reset">Reset</button>
+  <button (reset)="onReset()" class="reset" type="reset">Reset</button>
   <button class="submit" type="submit">Submit</button>
 </form>

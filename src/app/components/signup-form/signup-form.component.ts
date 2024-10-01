@@ -55,6 +55,7 @@ export class SignupFormComponent {
     };
   }
 
+  // Check si le formulaire est correct sinon renvoie message
   onSubmit(): void {
     if (this.signUpForm.valid) {
       console.log('Formulaire envoyé');
@@ -65,13 +66,21 @@ export class SignupFormComponent {
     }
   }
 
-  checkPassword(): void {
+  //See password to view quickly what user has written
+  seePassword(): void {
     this.isPassword ? (this.type = 'password') : (this.type = 'text');
-    console.log(this.type);
     this.isPassword = !this.isPassword;
-    console.log(
-      '🚀 ~ SignupFormComponent ~ checkPassword ~ this.isPassword :',
-      this.isPassword
-    );
+  }
+
+  // Reset all data
+  onReset(): void{
+    this.formBuilder.group({
+      username: '',
+      email: '',
+      passwords: this.formBuilder.group({
+        password: '',
+        passwordConfirm:'',
+      })
+    })
   }
 }
