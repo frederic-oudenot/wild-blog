@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-import { ArticleType } from '../models/article.type';
+import { ArticleType } from '../../models/article.type';
 
 @Component({
   selector: 'app-article',

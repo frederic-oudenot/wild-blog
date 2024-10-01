@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ArticleComponent } from '../article/article.component';
-import { ArticleType } from '../models/article.type';
-import { ArticlesService } from '../articles.service';
+import { ArticleComponent } from '../../components/article/article.component';
+import { ArticleType } from '../../models/article.type';
+import { ArticlesService } from '../../services/articles.service';
+
 
 @Component({
   selector: 'app-home-page',

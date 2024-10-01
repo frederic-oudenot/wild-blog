@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Message } from '../models/message.type';
+import { Message } from '../../models/message.type';
 
 @Component({
   selector: 'app-contact-form',

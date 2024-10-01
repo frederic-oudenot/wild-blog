@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Article } from './models/articles.class';
-import { ArticleType } from './models/article.type';
+import { Article } from '../models/articles.class';
+import { ArticleType } from '../models/article.type';
 
 @Injectable({
   providedIn: 'root'
