@@ -1,8 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { ArticleType } from '../../models/article.type';
+import { LikeArticle } from '../../models/likeArticle.type';
+import { ArticlesService } from '../../services/articles.service';
 
 @Component({
   selector: 'app-article',
@@ -15,7 +17,11 @@ export class ArticleComponent implements OnInit {
   // receive object from parent component app component
   @Input() isOneArticle!: boolean;
   @Input() article!: ArticleType;
+  @Output() like: EventEmitter<LikeArticle> =
+    new EventEmitter<LikeArticle>();
   isPublished: boolean = true;
+
+  constructor(private articlesService : ArticlesService) {}
 
   //Init when component is mounted
   ngOnInit() {
@@ -31,5 +37,11 @@ export class ArticleComponent implements OnInit {
   createComment(event: Event): void {
     event.preventDefault();
     console.log(event);
+  }
+
+  likeArticle(): void {
+    this.like.emit({ isLike: true, title: this.article.title });
+    this.article.likes++;
+
   }
 }

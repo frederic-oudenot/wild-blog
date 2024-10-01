@@ -1,0 +1,17 @@
+section {
+  position:fixed;
+  top:50px;
+  left:-10px;
+
+  .notification{
+    position:absolute;
+    z-index: 99;
+    background-color: rgba(202, 200, 200, 0.566);
+    color:black;
+    width:300px;
+    padding:1rem;
+    border-radius: 10px;
+
+    text-align: center;
+  }
+}

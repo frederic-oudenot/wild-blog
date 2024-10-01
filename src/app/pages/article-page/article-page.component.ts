@@ -3,11 +3,14 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { ArticleType } from '../../models/article.type';
 import { ArticleComponent } from '../../components/article/article.component';
 import { ArticlesService } from '../../services/articles.service';
+import { CommonModule } from '@angular/common';
+import { LikeArticle } from '../../models/likeArticle.type';
+import { NotificationComponent } from "../../components/notification/notification.component";
 
 @Component({
   selector: 'app-article-page',
   standalone: true,
-  imports: [ArticleComponent],
+  imports: [ArticleComponent, CommonModule, NotificationComponent],
   templateUrl: './article-page.component.html',
   styleUrl: './article-page.component.scss',
 })
@@ -19,6 +22,9 @@ export class ArticlePageComponent implements OnInit {
   articleId!: number;
   article!: ArticleType;
   isOneArticle: boolean = true;
+
+  likedArticle!: boolean;
+  likedArticleName!: string;
 
   //Using injection to get articlesService
   constructor(private articlesService: ArticlesService) {}
@@ -40,5 +46,13 @@ export class ArticlePageComponent implements OnInit {
   //Routes went wrong : error page
   gotoErrorPage(): void {
     this.router.navigate(['error']);
+  }
+
+  likeArticle(like: LikeArticle): void{
+    this.likedArticle = like.isLike;
+    this.likedArticleName = like.title
+    setTimeout(() => {
+      this.likedArticle = !like.isLike;
+    }, 1000);
   }
 }

@@ -30,6 +30,7 @@
         <button type="submit" class="button-submit" (click)="createComment($event)">
           Commenter
         </button>
+        <button (click)="likeArticle()" type="button">Like</button>
         <!-- Button to change status : published article -->
          @if(!isOneArticle){
            <button (click)="togglePublication()">

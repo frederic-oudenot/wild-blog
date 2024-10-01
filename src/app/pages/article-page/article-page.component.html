@@ -1,1 +1,4 @@
-<app-article [isOneArticle]="isOneArticle" [article]="article"></app-article>
+@if (likedArticle) {
+  <app-notification [title]="likedArticleName"></app-notification>
+}
+<app-article (like)="likeArticle($event)" [isOneArticle]="isOneArticle" [article]="article"></app-article>
