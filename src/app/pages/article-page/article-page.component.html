@@ -1,15 +1,14 @@
 <p>Article id {{ articleId }}</p>
 @if(article){
 
-  <p>{{article.title}}</p>
-  <p>{{article.content}}</p>
-  <img [src]="article.image" alt="article.title">
-  <p>{{article.createdAt}}</p>
-  <p>{{article.isPublished}}</p>
-  <p>{{article.likeCount}}</p>
-  <p>{{article.categoryName}}</p>
-  <p>{{article.isLiked}}</p>
+<p>{{ article.title | async }}</p>
+<p>{{ article.content | async }}</p>
+<img [src]="article.image" alt="article.title" />
+<p>{{ article.createdAt | async }}</p>
+<p>{{ article.isPublished | async }}</p>
+<p>{{ article.likeCount | async }}</p>
+<p>{{ article.categoryName | async }}</p>
+<p>{{ article.isLiked | async }}</p>
 } @empty {
-  <p>Not found</p>
+<p>Not found</p>
 }
-
