@@ -11,7 +11,7 @@ describe('SignupPageComponent', () => {
       imports: [SignupPageComponent]
     })
     .compileComponents();
-
+    
     fixture = TestBed.createComponent(SignupPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

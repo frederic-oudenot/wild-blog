@@ -1,27 +1,21 @@
-# WildBlog
+# WildBlog - Atelier Debug
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.5.
+Bienvenue dans l'atelier de debug ! Ce projet **WildBlog** est le résultat attendu après les quêtes 1 à 9 de ton parcours Angular. Ton objectif ? **Débugger** l'application pour la rendre pleinement fonctionnelle.
 
-## Development server
+> ⚠️ **Note** : Ce projet est fait sous Angular 17, donc certaines fonctionnalités peuvent être spécifiques à cette version.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Instructions
 
-## Code scaffolding
+1. **Installe les dépendances**  
+   Lance `npm install` pour installer toutes les dépendances nécessaires.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+2. **Lance l’application**  
+   Démarre le serveur de développement avec `ng serve` et ouvre l’application sur `http://localhost:4200/`.
 
-## Build
+3. **Débugge le code**  
+   Corrige toutes les erreurs et fais en sorte que l’application fonctionne correctement.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+4. **Note tes corrections**  
+   Garde une trace des erreurs corrigées pour suivre ta progression.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Bon debug ! 🛠️

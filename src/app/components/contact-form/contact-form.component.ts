@@ -1,32 +1,24 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { Message } from '../../models/message.type';
+import { FormsModule, NgModel } from '@angular/forms';
+import { Message } from '../../models/message.model';
 
 @Component({
   selector: 'app-contact-form',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule],
   templateUrl: './contact-form.component.html',
-  styleUrl: './contact-form.component.scss',
+  styleUrl: './contact-form.component.scss'
 })
 export class ContactFormComponent {
-  message: Message = {
-    lastname: '',
-    firstname: '',
-    email: '',
+
+  newMessage: Message = {
+    lastname: "",
+    firstname: "",
+    email: "",
+    content: "",
   };
 
-  constructor() {}
-
-  onSubmit() {
-    console.log('Formulaire validé');
-  }
-
-  onReset() {
-    this.message.lastname = '';
-    this.message.firstname = '';
-    this.message.email = '';
-    console.log('Reset');
+  onSubmit(): void {
+    console.log(this.newMessage);
   }
 }

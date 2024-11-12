@@ -11,7 +11,7 @@ describe('ArticlePageComponent', () => {
       imports: [ArticlePageComponent]
     })
     .compileComponents();
-
+    
     fixture = TestBed.createComponent(ArticlePageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
