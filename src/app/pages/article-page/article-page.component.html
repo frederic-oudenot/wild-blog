@@ -1,1 +1,15 @@
 <p>Article id {{ articleId }}</p>
+@if(article){
+
+  <p>{{article.title}}</p>
+  <p>{{article.content}}</p>
+  <img [src]="article.image" alt="article.title">
+  <p>{{article.createdAt}}</p>
+  <p>{{article.isPublished}}</p>
+  <p>{{article.likeCount}}</p>
+  <p>{{article.categoryName}}</p>
+  <p>{{article.isLiked}}</p>
+} @empty {
+  <p>Not found</p>
+}
+
