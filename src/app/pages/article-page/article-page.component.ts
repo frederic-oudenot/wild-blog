@@ -3,7 +3,6 @@ import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable, Subject, takeUntil } from 'rxjs';
 import { Article } from '../../models/article.model';
-import { environment } from '../../../environments/environment';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../services/api.service';
 
